@@ -1,0 +1,946 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{palatino}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 3cm
+\rightmargin 2cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Matemática para ciencias de los datos: Trabajo práctico 2
+\end_layout
+
+\begin_layout Author
+M.
+ Sc.
+ Saúl Calderón Ramírez 
+\begin_inset Newline newline
+\end_inset
+
+Instituto Tecnológico de Costa Rica, 
+\begin_inset Newline newline
+\end_inset
+
+Programa de Ciencias de los Datos, 
+\begin_inset Newline newline
+\end_inset
+
+PAttern Recognition and MAchine Learning Group (PARMA-Group)
+\end_layout
+
+\begin_layout Standard
+El presente proyecto introduce conceptos de optimización y aprendizaje automátic
+o.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Fecha de entrega: 31 de May.
+ 2021
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Modo de trabajo
+\series default
+: Grupo de tres personas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Tipo de entrega:
+\series default
+ digital, por medio de la plataforma TEC-digital (Jupyter y pdf).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Proyecciones y distancia de Mahalanobis
+\end_layout
+
+\begin_layout Section
+(15 puntos) La distancia Euclidiana
+\end_layout
+
+\begin_layout Enumerate
+Genere los datos usando la funcion
+\emph on
+ create_data_one_mode y 
+\emph default
+grafique los puntos en la matrix
+\emph on
+ 
+\begin_inset Formula $X\in\mathbb{R}^{n\times2}$
+\end_inset
+
+ 
+\emph default
+(con 
+\begin_inset Formula $n=100$
+\end_inset
+
+)
+\emph on
+, 
+\emph default
+además de los vectores (como puntos, usando la función 
+\emph on
+scatter
+\emph default
+) 
+\begin_inset Formula $\vec{y}_{1}$
+\end_inset
+
+, 
+\emph on
+
+\begin_inset Formula $\vec{y}_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $\vec{\mu}$
+\end_inset
+
+, 
+\emph default
+con un símbolo gráfico distinto para cada uno
+\emph on
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Calcule y reporte en el documento las siguientes distancias euclidianas
+ 
+\begin_inset Formula $d_{\ell_{2}}\left(\vec{\mu},\vec{y}_{1}\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{\ell_{2}}\left(\vec{\mu},\vec{y}_{2}\right)$
+\end_inset
+
+ (Puede usar la libreria de Pytorch para ello) ¿Qué tan similares son según
+ esa distancia?
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\color blue
+\begin_inset Formula $d_{\ell_{2}}\left(\vec{\mu},\vec{y}_{1}\right)=1.6919$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+\begin_inset Formula $d_{\ell_{2}}\left(\vec{\mu},\vec{y}_{2}\right)=1.6992$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+Los valores de distancias euclideanas son muy similares, sus valores difieren
+ a partir del tercer decimal (milésimas).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+A partir de la 
+\series bold
+\bar under
+distribución de los puntos
+\series default
+\bar default
+, explique cual de los dos vectores 
+\begin_inset Formula $\vec{y}_{1}$
+\end_inset
+
+ y 
+\emph on
+
+\begin_inset Formula $\vec{y}_{2}$
+\end_inset
+
+ 
+\emph default
+es más 
+\emph on
+verosímil
+\emph default
+ o posible.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\color blue
+Intuitivamente se observa una covarianza negativa entre ambas variables
+ X1 y X2.
+ Se observa que 
+\begin_inset Formula $\vec{y}_{1}$
+\end_inset
+
+ se encuentra en una zona donde hay más densidad de puntos, mientras que
+ 
+\emph on
+
+\begin_inset Formula $\vec{y}_{2}$
+\end_inset
+
+
+\emph default
+ se encuentra más alejado de la densidad de puntos.
+ Por lo tanto, a partir de la distribución de los puntos,
+\begin_inset Formula $\vec{y}_{1}$
+\end_inset
+
+ es más posible que 
+\emph on
+
+\begin_inset Formula $\vec{y}_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+Además se observa que en todas las corridas, 
+\begin_inset Formula $\vec{y}_{1}$
+\end_inset
+
+ está ligeramente más cerca a donde se encuentra la mayor densidad de puntos,
+ comparado con 
+\emph on
+
+\begin_inset Formula $\vec{y}_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Realice 3 corridas (generaciones de los datos), para corroborar su observación.
+ Muestre los gráficos de dispersión de las 3 corridas.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Corrida 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename run1.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Corrida 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename run2.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Corrida 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename run3.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+(25 puntos) Blanqueo PCA, sin normalización por la varianza
+\end_layout
+
+\begin_layout Standard
+A continuación, se detalla el procedimiento a seguir para normalizar la
+ rotación de los datos, a implementarse en la función 
+\emph on
+calcular_blanqueo_PCA1
+\emph default
+(X, y1, y2).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Calcule la matriz de covarianza para los datos, 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, usando el 
+\series bold
+\bar under
+método programado por usted anteriormente
+\series default
+\bar default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Transcribala en el reporte.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\color red
+\begin_inset Formula $cov(X)=\left[\begin{array}{cc}
+? & ?\\
+? & ?
+\end{array}\right]$
+\end_inset
+
+ Completar al correr todo el código
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Porqué la matriz de covarianza calculada es similar a la matriz de covarianza
+ usada para generar los datos?
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Calcule los autovectores 
+\begin_inset Formula $\vec{v}_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\vec{v}_{2}$
+\end_inset
+
+ de la matriz 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Transcribalos en el reporte.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\vec{v}_{1}=\left[\begin{array}{c}
+\\
+\\
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\vec{v}_{2}=\left[\begin{array}{c}
+\\
+\\
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Para todos los vectores 
+\begin_inset Formula $\vec{x}_{i}\in X$
+\end_inset
+
+, calcule las muestras con la media sustraída 
+\begin_inset Formula $\vec{u}_{i}=\vec{x}_{i}-\vec{\mu}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Acomode los datos formando la matriz 
+\begin_inset Formula $U=\begin{bmatrix}- & \vec{u}_{1} & -\\
+- & \vec{u}_{2} & -\\
+ & \vdots\\
+- & \vec{u}_{n} & -
+\end{bmatrix}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Proyecte los vectores 
+\begin_inset Formula $\vec{u}_{i}$
+\end_inset
+
+ usando como conjunto base los auto-vectores 
+\begin_inset Formula $\vec{v}_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\vec{v}_{2}$
+\end_inset
+
+, con la ecuación para cada componente del vector proyectado 
+\begin_inset Formula $\vec{u}'_{i}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\vec{u}'_{i,1}=\frac{\vec{u}_{i}\cdot\vec{v}_{1}}{\sigma_{1}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\vec{u}'_{i,2}=\frac{\vec{u}_{i}\cdot\vec{v}_{2}}{\sigma_{2}}
+\]
+
+\end_inset
+
+la matriz con todos los puntos proyectados viene dada entonces por 
+\begin_inset Formula $U'=\begin{bmatrix}- & \vec{u}'_{1} & -\\
+- & \vec{u}'_{2} & -\\
+ & \vdots\\
+- & \vec{u}'_{n} & -
+\end{bmatrix}$
+\end_inset
+
+.
+ Los coeficientes 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+ corresponden a las desviaciones estandar, la cuales están contenidas en
+ la matriz de covarianza 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+\bar under
+Realice tal proyección expresada de forma matricial, para el conjunto de
+ observaciones representado en la matriz
+\series default
+\bar default
+ 
+\begin_inset Formula $U$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Escriba la fórmula de la proyección matricial en el documento.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Proyecte también los vectores 
+\begin_inset Formula $\vec{w}_{1}=\vec{y}_{1}-\vec{\mu}$
+\end_inset
+
+ y 
+\emph on
+
+\begin_inset Formula $\vec{w}_{2}=\vec{y}_{2}-\vec{\mu}$
+\end_inset
+
+ 
+\emph default
+usando el espacio base conformado por los auto-vectores 
+\begin_inset Formula $\vec{v}_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $\vec{v}_{2}$
+\end_inset
+
+, para lograr los vectores proyectados 
+\begin_inset Formula $\vec{y}'_{1}$
+\end_inset
+
+ y 
+\emph on
+
+\begin_inset Formula $\vec{y}'_{2}$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Escriba e implemente también tal proyección de forma matricial, con 
+\begin_inset Formula $W=\begin{bmatrix}- & w_{1} & -\\
+- & \vec{w}{}_{2} & -
+\end{bmatrix}$
+\end_inset
+
+.
+ Use la funcion 
+\emph on
+cat 
+\emph default
+para ello.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Grafique todos los puntos en 
+\begin_inset Formula $U'$
+\end_inset
+
+ además de 
+\begin_inset Formula $\vec{y}'_{1}$
+\end_inset
+
+ y 
+\emph on
+
+\begin_inset Formula $\vec{y}'_{2}$
+\end_inset
+
+, 
+\emph default
+usando la simbología similar a la usada anteriormente.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Calcule la matriz de covarianza 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ para los datos en 
+\begin_inset Formula $U'$
+\end_inset
+
+, y relacione los valores de covarianza con lo graficado en el punto anterior
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+¿Porqué las covarianzas son nulas en tal matriz? Justifique su respuesta
+ con base a la gráfica anterior.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Calcule y reporte en el documento las siguientes distancias euclidianas
+ 
+\begin_inset Formula $d_{\ell_{2}}\left(\vec{\mu'},\vec{y}'_{1}\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{\ell_{2}}\left(\vec{\mu'},\vec{y}'_{2}\right)$
+\end_inset
+
+ con 
+\begin_inset Formula $\vec{\mu'}$
+\end_inset
+
+ el centroide de los datos 
+\begin_inset Formula $U'$
+\end_inset
+
+ ¿Qué tan similares son al centroide según esa distancia? Relacione los
+ datos con lo graficado en el apartado 6.
+\end_layout
+
+\begin_layout Section
+(20 puntos) La distancia de Mahalanobis
+\end_layout
+
+\begin_layout Enumerate
+Programe la función 
+\emph on
+calcular_distancia_Mahalanobis(vector1, vector2) 
+\emph default
+la cual calcula la distancia de mahalanobis entre dos vectores: 
+\begin_inset Formula 
+\[
+d_{M}\left(\vec{x}_{1},\vec{x}_{2}\right)=\sqrt{\left(\vec{x}_{1}-\vec{x}_{2}\right)^{T}\Sigma^{-1}\left(\vec{x}_{1}-\vec{x}_{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Calcule y reporte en el documento las siguientes distancias de Mahalanobis
+ 
+\begin_inset Formula $d_{M}\left(\vec{\mu},\vec{y}_{1}\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $d_{M}\left(\vec{\mu},\vec{y}_{2}\right)$
+\end_inset
+
+ ¿Qué tan similares son según esta distancia? ¿Explica mejor la distancia
+ de Mahalanobis la verosimilitud de que cada uno de los puntos haya sido
+ generado por una distribución Gaussiana? ¿Porqué?
+\end_layout
+
+\end_deeper
+\begin_layout Part
+Optimización
+\end_layout
+
+\begin_layout Section
+Optimización de funciones
+\end_layout
+
+\begin_layout Standard
+Para la siguiente función:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+f_{1}\left(x_{1},x_{2}\right)=\left(x_{1}-0.7\right)^{2}+\left(x_{2}-0.5\right)^{2}
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $x_{1},x_{2}\in\left[-4,4\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Realice lo siguiente:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+(10 puntos)
+\series default
+ Según tales gráficas, grafique las funciones usando la función 
+\emph on
+contour
+\emph default
+ de 
+\emph on
+matplotlib 
+\emph default
+o similar
+\emph on
+, y 
+\emph default
+distinga si las funciones son convexas o no, y los puntos mínimos y regiones
+ o puntos silla.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+(30 puntos)
+\series default
+ Implemente
+\series bold
+ 
+\series default
+el algoritmo del 
+\series bold
+descenso del gradiente
+\series default
+, para cada función:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Escoja un coeficiente de aprendizaje 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ que permita la convergencia y reporte los resultados para 10 corridas:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+La cantidad de iteraciones necesarias para converger, y el punto de convergencia.
+\end_layout
+
+\begin_layout Enumerate
+Reporte si convergió al punto correcto.
+\end_layout
+
+\begin_layout Enumerate
+Escoga una de las corridas y en una gráfica muestre los puntos probados
+ por el algoritmo, usando la función contour o similar, donde se muestren
+ todos los puntos probados durante el proceso de optimización.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Escoja un 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ relativamente grande respecto al valor seleccionado ¿Qué sucede? ¿Permite
+ un 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ muy grande la convergencia?
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+¿Qué sucede si escoge un 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ muy pequeño? 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+(20 extra puntos)
+\series default
+ Implemente el algoritmo
+\series bold
+ 
+\series default
+de 
+\series bold
+Newton-Raphson
+\series default
+, para cada función:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Calcule la matriz Hessiana demostrando cada paso intermedio.
+\end_layout
+
+\begin_layout Enumerate
+Reporte los resultados para 10 corridas:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+La cantidad de iteraciones necesarias para converger.
+\end_layout
+
+\begin_layout Enumerate
+El punto de convergencia y reporte si convergió al punto correcto.
+\end_layout
+
+\begin_layout Enumerate
+Escoga una de las corridas y en una gráfica muestre los puntos probados
+ por el algoritmo, usando la función contour o similar, donde se muestren
+ todos los puntos probados durante el proceso de optimización.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+Para la siguiente función: 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+f_{2}\left(x_{1},x_{2}\right)=x_{1}e^{\left(-x_{1}^{2}-x_{2}^{2}\right)}
+\]
+
+\end_inset
+
+con 
+\begin_inset Formula $x_{1},x_{2}\in\left[-2,2\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+(10 puntos extra) 
+\series default
+Implemente el algoritmo
+\series bold
+ 
+\series default
+de 
+\series bold
+Newton-Raphson
+\series default
+, para cada función:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Calcule la matriz Hessiana demostrando cada paso intermedio.
+\end_layout
+
+\begin_layout Enumerate
+Reporte los resultados para 10 corridas:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+La cantidad de iteraciones necesarias para converger.
+\end_layout
+
+\begin_layout Enumerate
+El punto de convergencia y reporte si convergió al punto correcto.
+\end_layout
+
+\begin_layout Enumerate
+Escoga una de las corridas y en una gráfica muestre los puntos probados
+ por el algoritmo, usando una gráfica de las curvas de nivel para la función
+ optimizada.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_body
+\end_document

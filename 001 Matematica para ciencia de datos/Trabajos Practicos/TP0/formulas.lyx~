@@ -1,0 +1,170 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+problema 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f(x_{0},y_{0})=x^{3}y^{2}+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\textstyle \nabla f({\textstyle x_{0},{\textstyle y_{0})\text{{\textstyle =}[\frac{\partial f}{\partial x_{(x_{0},y_{0})}}]{\textstyle i} + [\frac{\partial f}{\partial y_{(x_{0},y_{0})}}]{\textstyle j}}}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial f}{\partial x_{(x_{0},y_{0})}}=3x^{2}y^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial f}{\partial y_{(x_{0},y_{0})}}=2x^{3}y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\textstyle \nabla f({\textstyle x_{0},{\textstyle y_{0})\text{{\textstyle =}[{\textstyle 3x^{2}y^{2}]i}{\textstyle +} {\textstyle [2x^{3}y]j}}}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H_{f}\text{=}\left[\begin{array}{cc}
+\frac{\partial f}{\partial x_{(x_{0},y_{0})}^{2}} & \frac{\partial f}{\partial x_{(x_{0},y_{0})}\partial y_{(x_{0},y_{0})}}\\
+\frac{\partial f}{\partial y_{(x_{0},y_{0})}\partial x_{(x_{0},y_{0})}} & \frac{\partial f}{\partial y_{(x_{0},y_{0})}^{2}}
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial f}{\partial x_{(x_{0},y_{0})}}=3x^{2}y^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial f}{\partial y_{(x_{0},y_{0})}\partial x_{(x_{0},y_{0})}}=6x^{2}y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial f}{\partial x_{(x_{0},y_{0})}^{2}}=6xy^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial f}{\partial y_{(x_{0},y_{0})}}=2x^{3}y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial f}{\partial x_{(x_{0},y_{0})}\partial y_{(x_{0},y_{0})}}=6x^{2}y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial f}{\partial y_{(x_{0},y_{0})}^{2}}=2x^{3}$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
